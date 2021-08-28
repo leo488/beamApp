@@ -8,7 +8,7 @@ import {
   Button,
 } from "react-native";
 import Onboarding from "react-native-onboarding-swiper";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 
 const Done = ({ ...props }) => {
   return (
@@ -24,10 +24,11 @@ const Done = ({ ...props }) => {
           fontWeight: "600",
           color: "#1F64FF",
           margin: 15,
-          marginBottom: 20,
+          marginBottom: 0,
+
         }}
       >
-        Done
+      
       </Text>
     </TouchableOpacity>
   );
@@ -37,32 +38,28 @@ const Skip = ({ ...props }) => {
   return (
     <Text
       style={{
-        position: "absolute",
-        top: -650,
-        right: -200,
-        left: 300,
-        textTransform: "uppercase",
-        color: "#000",
-        fontWeight: "bold",
+      
+        textTransform: "capitalize",
+        color: "#fff",
+        
+        paddingLeft: 25,
+        fontSize: 18,
       }}
       {...props}
     >
-      SKip
+      Skip
     </Text>
   );
 };
 const Next = ({ ...props }) => {
   return (
-    <TouchableOpacity {...props}>
+    <TouchableOpacity {...props} style={{justifyContent: 'center', flexDirection: 'row', alignItems: 'center', paddingRight: 20, marginTop: 8 }}>
       <Text
-        style={{ color: "#fff", padding: 35, marginBottom: 10, fontSize: 18 }}
-      >
-        <MaterialCommunityIcons
-          name="skip-next-outline"
-          size={30}
-          color="#1F64FF"
-        />
+        style={{ color: "#fff", padding: 35, marginBottom: 10, fontSize: 18, justifyContent: 'center', alignItems: 'center' }}
+      >Next
+       
       </Text>
+      <MaterialIcons name="arrow-right-alt" size={24} color="white"  style={{marginLeft: -35, marginBottom: 6}}/>
     </TouchableOpacity>
   );
 };
@@ -70,6 +67,7 @@ const Next = ({ ...props }) => {
 function Splash({ navigation }) {
   return (
     <Onboarding
+    bottomBarHighlight={false}
       DoneButtonComponent={Done}
       NextButtonComponent={Next}
       SkipButtonComponent={Skip}
@@ -86,7 +84,7 @@ function Splash({ navigation }) {
         alignItems: "center",
       }}
       bottomBarHeight={60}
-      bottomBarColor={"white"}
+      
       titleStyles={{ fontWeight: "bold", flexDirection: "column" }}
       subTitleStyles={{ justifyContent: "center", alignItems: "center" }}
       DoneButtonComponent={Done}
@@ -94,12 +92,10 @@ function Splash({ navigation }) {
       onDone={() => navigation.navigate("Register")}
       pages={[
         {
-          backgroundColor: "#ffffff",
+          backgroundColor: "#FFBE97",
           image: (
             <Image
-              source={{
-                uri: "https://compai.pub/v1/png/0c38059f05372f2c555fed38e9ba8e33244c4587155a4eb62b5998df7f012bdd",
-              }}
+              source={require('./../../assets/Company-pana.png')}
               style={styles.img}
             />
           ),
@@ -107,20 +103,18 @@ function Splash({ navigation }) {
             <View style={styles.bg}>
               <Text style={styles.headText}>Stay Happy</Text>
               <Text style={styles.subText}>
-                Join the largest {"\n"}student financial community {"\n"}online
-                and build your {"\n"}finances.{" "}
+                Join the largest student financial community online
+                and build your finances.
               </Text>
             </View>
           ),
           subtitle: "",
         },
         {
-          backgroundColor: "#fff",
+          backgroundColor: "#FFAF4E",
           image: (
             <Image
-              source={{
-                uri: "https://compai.pub/v1/png/c4dc851cbfcf0ebbe85ea289b80e0217765701a35036b5f49ece38daa8a9aa11",
-              }}
+            source={require('./../../assets/Financeapp-pana.png')}
               style={styles.img2}
             />
           ),
@@ -128,20 +122,18 @@ function Splash({ navigation }) {
             <View style={styles.bg2}>
               <Text style={styles.headText}>Spend Smartly</Text>
               <Text style={styles.subText}>
-                Spend smart with the {"\n"}budget manager that {"\n"}has all
-                your needs {"\n"}in check{" "}
+                Spend smart with the budget manager that has all
+                your needs in check
               </Text>
             </View>
           ),
           subtitle: "",
         },
         {
-          backgroundColor: "#fff",
+          backgroundColor: "#1FB090",
           image: (
             <Image
-              source={{
-                uri: "https://compai.pub/v1/png/5f3ff1d6c6f89e6677ce38e336322307bf5fbf3c05608ad3e0bee85e485a0475",
-              }}
+            source={require('./../../assets/Banknote-pana.png')}
               style={styles.img3}
             />
           ),
@@ -149,9 +141,15 @@ function Splash({ navigation }) {
             <View style={styles.bg3}>
               <Text style={styles.headText}>get quick cash</Text>
               <Text style={styles.subText}>
-                Get instant access {"\n"}to quick loans to {"\n"}solve emergency
-                needs {"\n"}on the go.{" "}
+                Get instant access to quick loans to solve emergency
+                needson the go.
               </Text>
+
+              <TouchableOpacity style={{marginTop: 50,marginHorizontal: 15, backgroundColor: '#fff', borderRadius: 40, borderBottomRightRadius: 5, height: 55, justifyContent: 'center', alignItems: 'center'}} onPress={() => navigation.navigate('Signup')}>
+                <Text  style={{fontSize: 18}}>
+                  Get Started
+                </Text>
+              </TouchableOpacity>
             </View>
           ),
           subtitle: "",
@@ -165,50 +163,53 @@ export default Splash;
 
 const styles = StyleSheet.create({
   img: {
-    marginTop: 20,
-    width: 300,
+    marginTop: 250,
+    width: 350,
     height: 350,
   },
   img2: {
-    marginTop: 0,
-    width: 190,
-    height: 200,
-    marginTop: 160,
+    marginTop: 250,
+    width: 230,
+    height: 230,
+  
   },
   img3: {
-    marginTop: 0,
-    width: 330,
-    height: 340,
-    marginTop: 180,
+    
+    width: 250,
+    height: 250,
+    marginTop: 250,
   },
   bg: {
-    backgroundColor: "#1F64FF",
+   
     flex: 0.4,
     width: "100%",
     padding: 10,
   },
   bg2: {
-    backgroundColor: "#fd7289",
+ 
     flex: 0.4,
     width: "100%",
     padding: 10,
   },
   bg3: {
-    backgroundColor: "#ffbe9d",
+  
     flex: 0.4,
     width: "100%",
     padding: 10,
   },
   headText: {
-    fontSize: 42,
+    fontSize: 36,
     fontWeight: "bold",
     justifyContent: "center",
-    textTransform: "uppercase",
+    alignItems: 'center',
+    textTransform: "capitalize",
     color: "#fff",
-    textDecorationLine: "underline",
+    textAlign: 'center'
+
   },
   subText: {
-    fontSize: 20,
+    fontSize: 17,
     color: "#fff",
+    textAlign: 'center'
   },
 });

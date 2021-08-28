@@ -25,7 +25,7 @@ export default function FriendList({navigation}) {
           style={{
             justifyContent: "center",
             alignItems: "center",
-            margin: 10
+            margin: 15
           }}
         >
          
@@ -40,7 +40,7 @@ export default function FriendList({navigation}) {
           >
            <Image
             source={{uri: item.image}}
-            style={{height: 45, width: 45, }}
+            style={{height: 54, width: 54, }}
            />
           </View>
           <Text style={{ fontSize: 13, fontWeight: 'bold' }}>{item.name}</Text>

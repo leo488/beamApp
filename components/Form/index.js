@@ -22,7 +22,7 @@ const Form = ({ navigation, question, icon }) => {
         style={styles.input}
         onChangeText={onChangeInput}
         value={text}
-        placeholder="useless placeholder"
+        placeholder=" placeholder"
       />
       {icon}
     </View>
@@ -41,11 +41,17 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     borderColor: "#fff",
     backgroundColor: "#fff",
-    borderBottomColor: "#1F64FF",
-    borderWidth: 2,
+    borderColor: "#1F64FF",
+    borderWidth: 1,
+    height: 45,
+    paddingLeft: 10,
+    borderRadius: 20,
+    borderBottomRightRadius: 2,
+    marginTop: 0
   },
   formHead: {
     fontSize: 18,
     fontWeight: "bold",
+    paddingLeft: 10
   },
 });

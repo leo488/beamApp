@@ -9,7 +9,13 @@ import {
   ScrollView,
   StatusBar,
 } from "react-native";
-import { Entypo, Ionicons, MaterialIcons, FontAwesome5, FontAwesome } from "@expo/vector-icons";
+import {
+  Entypo,
+  Ionicons,
+  MaterialIcons,
+  FontAwesome5,
+  FontAwesome,
+} from "@expo/vector-icons";
 import { color } from "react-native-reanimated";
 import FriendList from "../../components/FriendList";
 import Footer from "../../components/Footer";
@@ -21,93 +27,66 @@ function Home({ navigation }) {
         <View>
           <View style={styles.profileSection}>
             <View style={styles.profiletexts}>
-              <Text style={styles.nameText}>john</Text>
+              <Text style={styles.nameText}>bola</Text>
               <Text style={styles.greetingsText}>
                 hello there, its a great afternoon🌞
               </Text>
             </View>
-           <TouchableOpacity  onPress={() => navigation.navigate('Profile')}>
-           <Image
-              source={{
-                uri: "https://compai.pub/v1/png/fe79e4fc81f7f63399a9fa39c77f1f333b9f18f6f500db9473873488c289d2fa",
+            <TouchableOpacity
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                paddingTop: 60,
               }}
-              style={styles.img}
-            />
-           </TouchableOpacity>
+              onPress={() => navigation.navigate("Profile")}
+            >
+              <Image
+                source={require("./../../assets/beam_profile.png")}
+                style={{
+                  width: 27,
+                  height: 50,
+                  marginBottom: 40,
+                  marginRight: 15,
+                }}
+              />
+            </TouchableOpacity>
           </View>
           <View style={styles.dashboardSection}>
             <View style={styles.dashboardHeader}>
               <Text
-                style={{ color: "black", fontWeight: "bold", fontSize: 18}}
+                style={{ color: "black", fontWeight: "bold", fontSize: 18 }}
               >
-                Dashboard
+                BeamBank
               </Text>
-              <Entypo name="chevron-down" size={24} color="black" />
+              <Ionicons
+                name="ios-eye"
+                size={20}
+                color="black"
+                style={{ marginRight: 25 }}
+              />
             </View>
             <View style={styles.dashboard}>
               <View>
-                <View style={styles.dashboardTop}>
-                  <Ionicons name="stats-chart" size={24} color="#407BFF" />
-                  <Text
-                    style={{ fontWeight: "bold", marginLeft: 15, marginTop: 5 }}
-                  >
-                    Beambank
-                  </Text>
-                </View>
-                <Text style={{ fontSize: 55, fontWeight: "bold" }}>
+                <Text
+                  style={{
+                    fontSize: 55,
+                    fontWeight: "bold",
+                    color: "#fff",
+                    alignSelf: "center",
+                  }}
+                >
                   N10,000
                 </Text>
-                <View style={{ flexDirection: "row" }}>
-                  <MaterialIcons
-                    name="show-chart"
-                    size={20}
-                    color="#FF725E"
-                    style={{
-                      paddingRight: 5,
-                      backgroundColor: "#eee",
-                      padding: 2,
-                      marginRight: 3,
-                      borderRadius: 5,
-                      alignSelf: "center",
-                      borderBottomRightRadius: 0,
-                    }}
-                  />
-                  <TouchableOpacity
-                    style={{
-                      backgroundColor: "#407BFF",
-                      width: "60%",
-                      borderRadius: 10,
-                      borderBottomRightRadius: 2,
-                    }}
-                  >
-                    <Text
-                      style={{
-                        color: "white",
-                        padding: 2,
-                        fontWeight: "bold",
-                        fontSize: 15,
-                        paddingLeft: 8,
-                      }}
-                    >
-                      this week/ 70%
-                    </Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-              <View style={{ justifyContent: "center", alignItems: "center" }}>
-                <Image
-                  source={{
-                    uri: "https://stories.freepiklabs.com/storage/45193/piggy-bank-rafiki-6687.png",
-                  }}
-                  style={styles.dashboardimg}
-                />
+                <View
+                  style={{ flexDirection: "row", justifyContent: "center" }}
+                ></View>
               </View>
             </View>
           </View>
 
           {/* quick transaction */}
           <View style={styles.quick}>
-          <Text
+            <Text
               style={{
                 color: "black",
                 fontWeight: "bold",
@@ -117,50 +96,83 @@ function Home({ navigation }) {
             >
               Quick transactions
             </Text>
-            <View style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              marginTop: 10,
-              paddingHorizontal: 10
-            }}>
-              <TouchableOpacity onPress={() => navigation.navigate('Transfer')}>
-              <View style={styles.alignicon}>
-                <View style={{backgroundColor: '#FFE0DC', padding: 10, borderRadius: 10, borderBottomRightRadius: 1}}>
-                <MaterialIcons name="transfer-within-a-station" size={24} color="#FF725E"  />
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginTop: 10,
+                paddingHorizontal: 10,
+              }}
+            >
+              <TouchableOpacity onPress={() => navigation.navigate("Transfer")}>
+                <View style={styles.alignicon}>
+                  <View
+                    style={{
+                      backgroundColor: "#FFE0DC",
+                      padding: 10,
+                      borderRadius: 25,
+                      borderBottomRightRadius: 1,
+                    }}
+                  >
+                    <MaterialIcons
+                      name="transfer-within-a-station"
+                      size={28}
+                      color="#FF725E"
+                    />
+                  </View>
+                  <Text>Transfer</Text>
                 </View>
-              <Text>Transfer</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Fund')}>
-              <View style={styles.alignicon}>
-              <View style={{backgroundColor: '#FFD910', padding: 10, borderRadius: 10, borderBottomRightRadius: 1}}>
-              <FontAwesome5 name="piggy-bank" size={24} color="#AF9404" />
-              </View>
-              <Text>Fund</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Withdraw')}>
-              <View style={styles.alignicon}>
-              <View style={{backgroundColor: '#D9FFFF', padding: 10, borderRadius: 10, borderBottomRightRadius: 1}}>
-              <FontAwesome5 name="money-bill-wave-alt" size={24} color="#05A66C" />
-              </View>
-              <Text>withdraw</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Loan')}>
-              <View style={styles.alignicon}>
-              <View style={{backgroundColor: '#F9DCFA', padding: 10, borderRadius: 10, borderBottomRightRadius: 1}}>
-              <FontAwesome name="bank" size={24} color="#EE5BF3" />
-              </View>
-              <Text>Loan</Text>
-              </View>
-            </TouchableOpacity>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Fund")}>
+                <View style={styles.alignicon}>
+                  <View
+                    style={{
+                      backgroundColor: "#FFD910",
+                      padding: 10,
+                      borderRadius: 25,
+                      borderBottomRightRadius: 1,
+                    }}
+                  >
+                    <FontAwesome5 name="piggy-bank" size={24} color="#AF9404" />
+                  </View>
+                  <Text>Fund</Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Withdraw")}>
+                <View style={styles.alignicon}>
+                  <View
+                    style={{
+                      backgroundColor: "#D9FFFF",
+                      padding: 10,
+                      borderRadius: 25,
+                      borderBottomRightRadius: 1,
+                    }}
+                  >
+                    <FontAwesome5 name="coins" size={24} color="#05A66C" />
+                  </View>
+                  <Text>withdraw</Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Loan")}>
+                <View style={styles.alignicon}>
+                  <View
+                    style={{
+                      backgroundColor: "#F9DCFA",
+                      padding: 10,
+                      borderRadius: 25,
+                      borderBottomRightRadius: 1,
+                    }}
+                  >
+                    <FontAwesome name="bank" size={24} color="#EE5BF3" />
+                  </View>
+                  <Text>Loan</Text>
+                </View>
+              </TouchableOpacity>
             </View>
           </View>
 
           {/* ads */}
-        
 
           {/* friends section */}
           <View style={styles.send}>
@@ -175,7 +187,7 @@ function Home({ navigation }) {
               Send money to? 💰
             </Text>
             <View style={{}}>
-              <FriendList navigation={navigation}/>
+              <FriendList navigation={navigation} />
             </View>
           </View>
           <View style={styles.todo}>
@@ -190,7 +202,7 @@ function Home({ navigation }) {
             >
               To-do ☺️
             </Text>
-            <TouchableOpacity onPress={() => navigation.navigate('Verify')}>
+            <TouchableOpacity onPress={() => navigation.navigate("Verify")}>
               <View style={styles.list}>
                 <Image source={require("./../../assets/img/pointer.png")} />
                 <Text
@@ -200,7 +212,7 @@ function Home({ navigation }) {
                 </Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Budget')}>
+            <TouchableOpacity onPress={() => navigation.navigate("Budget")}>
               <View style={styles.list}>
                 <Image source={require("./../../assets/img/pointer.png")} />
                 <Text
@@ -210,7 +222,7 @@ function Home({ navigation }) {
                 </Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Budget')}>
+            <TouchableOpacity onPress={() => navigation.navigate("Budget")}>
               <View style={styles.list}>
                 <Image source={require("./../../assets/img/pointer.png")} />
                 <Text
@@ -220,7 +232,7 @@ function Home({ navigation }) {
                 </Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Budget')}>
+            <TouchableOpacity onPress={() => navigation.navigate("Budget")}>
               <View style={styles.list}>
                 <Image source={require("./../../assets/img/pointer.png")} />
                 <Text
@@ -231,47 +243,43 @@ function Home({ navigation }) {
               </View>
             </TouchableOpacity>
           </View>
-          <Text  style={{
-                color: "black",
-                fontWeight: "bold",
-                fontSize: 18,
-                marginBottom: 10,
-                paddingLeft: 10,
-              }}>More...</Text>
+          <Text
+            style={{
+              color: "black",
+              fontWeight: "bold",
+              fontSize: 18,
+              marginBottom: 8,
+              paddingLeft: 25,
+              marginTop: 40,
+            }}
+          >
+            More 📦
+          </Text>
           <View style={styles.ad}>
-         
-            {/* <Image  
-              source={{uri: 'https://compai.pub/v1/png/5d6d5512139af06efc007c3e9df5b8af59d3a087513fbe603d5a976e81dc2573'}}
-              style={{ height: 150, width: 150, flex: .4,}}
-            />
-            <View style={{flex: .6}}>
-              <Text style={{fontSize: 18, fontWeight: 'bold', color: '#1F64FF'}}>lock some funds</Text>
-              <Text style={{fontSize: 12, }}>save some cash for the rainy
-days ahead, it doesnt have to rain before you save</Text>
-              <TouchableOpacity>
-                <Text style={{backgroundColor: '#1F64FF', color: '#fff', width: 80, padding: 5, borderRadius: 10, borderBottomRightRadius: 1,}}>Start Now!</Text>
-              </TouchableOpacity>
-            </View> */}
             <TouchableOpacity>
-              <Image 
-                source={{uri: 'https://compai.pub/v1/png/baaf76aaf1975be31aa1d8a67408494d1cad3f6395c443b77a6f32520568b3de'}}
-                style={{height: 150, width: 330}}
+              <Image
+                source={{
+                  uri: "https://compai.pub/v1/png/baaf76aaf1975be31aa1d8a67408494d1cad3f6395c443b77a6f32520568b3de",
+                }}
+                style={{ height: 160, width: 300 }}
               />
             </TouchableOpacity>
           </View>
           <TouchableOpacity>
-         <View style={{marginTop: 30, marginBottom: 100,  alignSelf: 'center'}}>
-            <Image 
-             source={{uri: 'https://compai.pub/v1/png/db532e81aa235d40bf1152b6047c4913423f979120f61d8669b356c6cdcfef73'}}
-             style={{height: 150, width: 330}}
-            />
-          </View>
-         </TouchableOpacity>
-        
-          
+            <View
+              style={{ marginTop: 30, marginBottom: 100, alignSelf: "center" }}
+            >
+              <Image
+                source={{
+                  uri: "https://compai.pub/v1/png/db532e81aa235d40bf1152b6047c4913423f979120f61d8669b356c6cdcfef73",
+                }}
+                style={{ height: 160, width: 300 }}
+              />
+            </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
-      <Footer navigation={navigation}/>
+      <Footer navigation={navigation} />
     </SafeAreaView>
   );
 }
@@ -280,12 +288,11 @@ export default Home;
 
 const styles = StyleSheet.create({
   homeContainer: {
-    // paddingTop: 70,
+    paddingTop: 30,
     backgroundColor: "white",
     flex: 1,
     paddingLeft: 5,
     // marginTop: StatusBar.currentHeight,
-    
   },
 
   img: {
@@ -314,7 +321,7 @@ const styles = StyleSheet.create({
     color: "#263238",
   },
   greetingsText: {
-    marginTop: -5,
+    marginTop: 0,
   },
   dashboardSection: {
     marginTop: 5,
@@ -329,29 +336,29 @@ const styles = StyleSheet.create({
   },
 
   dashboard: {
-    backgroundColor: "#F3FBF7",
+    backgroundColor: "#1F64FF",
     flexDirection: "row",
-    borderRadius: 10,
+    marginRight: 5,
+    borderRadius: 20,
     borderBottomRightRadius: 2,
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 15,
+    paddingVertical: 10,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 1,
     },
     shadowOpacity: 0.18,
-    shadowRadius: 1.00,
-    
+    shadowRadius: 1.0,
+
     elevation: 1,
   },
 
   dashboardTop: {
     flexDirection: "row",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignItems: "center",
-    marginLeft: 10,
   },
 
   dashboardimg: {
@@ -361,12 +368,12 @@ const styles = StyleSheet.create({
     marginLeft: -30,
   },
   send: {
-    marginTop: 35,
+    marginTop: 55,
   },
   todo: {
-    marginTop: 25,
+    marginTop: 55,
     // marginBottom: 100,
-    paddingLeft: 10
+    paddingLeft: 10,
   },
   list: {
     flexDirection: "row",
@@ -379,21 +386,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: 5,
   },
-  quick:{
-    marginTop: 20
+  quick: {
+    marginTop: 40,
   },
-  alignicon:{
-    justifyContent: 'center',
-    alignItems: 'center'
+  alignicon: {
+    justifyContent: "center",
+    alignItems: "center",
   },
-  ad:{
-    marginTop: 25,
+  ad: {
     // marginBottom: 100,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-     padding:  10,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
     //  backgroundColor: '#DFE8FC'
-  }
-  
+  },
 });

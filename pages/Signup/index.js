@@ -38,7 +38,7 @@ const Signup = ({ navigation }) => {
                 name="checkmark-done-circle"
                 size={20}
                 color="black"
-                style={{ position: "absolute", right: 30, top: 45 }}
+                style={{ position: "absolute", right: 35, top: 65 }}
               />
             }
           />
@@ -50,7 +50,7 @@ const Signup = ({ navigation }) => {
                 name="ios-eye"
                 size={20}
                 color="black"
-                style={{ position: "absolute", right: 30, top: 45 }}
+                style={{ position: "absolute", right: 35, top: 65 }}
               />
             }
           />
@@ -61,7 +61,7 @@ const Signup = ({ navigation }) => {
                 name="ios-eye"
                 size={20}
                 color="black"
-                style={{ position: "absolute", right: 30, top: 45 }}
+                style={{ position: "absolute", right: 35, top: 65 }}
               />
             }
           />
